@@ -6,7 +6,7 @@
     <title>【究極】もしもあなたが裏ボスだったら？</title>
     <meta property="og:title" content="【究極】もしもあなたが裏ボスだったら？">
     <meta property="og:description" content="10問の質問で、あなたの隠れた裏ボスタイプを関西弁で診断！">
-    <meta property="og:image" content="boss7.png"> 
+    <meta property="og:image" content="boss8.png.png"> 
     <meta property="og:url" content="https://saigonshin.github.io/ura-boss-final/">
     <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         h1 { color: var(--accent); text-align: center; font-size: 1.4rem; text-shadow: 0 0 10px rgba(255,121,198,0.5); }
         .card { background: var(--card-bg); border-radius: 20px; border: 2px solid var(--accent); overflow: hidden; text-align: center; }
-        .main-img { width: 100%; height: 320px; object-fit: cover; background-color: #000; display: block; }
-        .btn { display: block; width: 100%; padding: 15px; margin-top: 10px; background: #282a36; border: 2px solid #44475a; color: white; border-radius: 50px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        .main-img { width: 100%; height: 320px; object-fit: cover; background-color: #000; }
+        .btn { display: block; width: 100%; padding: 15px; margin-top: 10px; background: #282a36; border: 2px solid #44475a; color: white; border-radius: 50px; cursor: pointer; font-size: 1rem; transition: 0.3s; border-style: solid; }
         .btn:hover { border-color: var(--accent); background: #44475a; }
         .res-desc { font-size: 0.95rem; line-height: 1.7; text-align: left; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 15px; white-space: pre-wrap; margin-top: 15px; }
         .hidden { display: none; }
@@ -32,7 +32,7 @@
     <div id="start" class="fade-in">
         <h1>【究極】もしもあなたが<br>裏ボスだったら？</h1>
         <div class="card" onclick="start()" style="cursor:pointer;">
-            <img src="boss7.png" class="main-img" onerror="this.style.display='none'">
+            <img src="boss8.png.png" class="main-img" alt="裏ボス診断">
             <div style="padding:15px; font-weight:bold; color:var(--accent);">タップして運命を知りや！</div>
         </div>
     </div>
@@ -44,7 +44,7 @@
     </div>
     <div id="result" class="hidden fade-in">
         <div id="res-card" class="card" style="border-width:4px;">
-            <img id="res-img" class="main-img" src="" onerror="this.style.display='none'">
+            <img id="res-img" class="main-img" src="" alt="診断結果">
             <div style="padding:20px;">
                 <div id="res-type" style="font-size:1.4rem; font-weight:bold; margin-bottom:10px;"></div>
                 <div id="res-desc" class="res-desc"></div>
@@ -73,13 +73,13 @@
     ];
 
     const resData = {
-        A: { t: "インテリ眼鏡の冷徹執行官", d: "自分、頭良すぎて逆に怖いわ！お茶すすりながら「全部、計算通りやで」って涼しい顔で言うてるタイプやろ。感情に流されへんから、敵に回すと一番理詰めでボコボコにされる、最強のインテリやな。", c: "#4cc9f0", i: "boss1.png" },
-        B: { t: "爆破大好き！ガトリング少女", d: "自分、テンション高すぎやろ！「ルール？そんなん壊すためにあるんやろ？」って笑いながら、デカい銃をぶっ放すタイプやな。自分が楽しければ世界がどないなってもええっていう、無茶苦茶やけど皆に好かれる爆弾娘やで！", c: "#f72585", i: "boss2.png" },
-        C: { t: "毒薬と微笑みのマッドサイエンティスト", d: "自分、顔は笑ってるけど目が全然笑ってへんで！優しく話しかけながら、裏でこっそり怪しい薬を作って「どんな反応するか楽しみやなぁ」とか言うてそうやわ。本気で怒らせたら一番えげつない、変態的な天才やな！", c: "#ffbe0b", i: "boss3.png" },
-        D: { t: "影を操る虚無の支配者", d: "自分、ミステリアスすぎて存在が「闇」そのものやん！言葉少なめに「…消えろ」って一言で相手を沈める正統派。深い孤独を抱えてる感じが、逆にかっこよすぎてファンが仰山つくタイプやで。", c: "#7209b7", i: "boss4.png" },
-        E: { t: "ぬいぐるみと残酷なプリンセス", d: "見た目は可愛らしいお嬢様やのに、中身は驚くほど残酷やな！「あの子、邪魔やから消して？」ってぬいぐるみに命令してそうやわ。その可愛さと恐ろしさのギャップに、一生下僕にされる奴が後を絶たへんで！", c: "#ff0054", i: "boss5.png" },
-        F: { t: "墜ちた聖職者の光と闇", d: "自分、一番タチ悪いタイプやな！正義の顔して「救ってあげます」って言いながら、絶望に突き落とすんやろ？背中の羽が白か黒か分からんくらいオーラが複雑や。自分に助けられたら最後、そこは地獄の入り口やわ。", c: "#480ca8", i: "boss6.png" },
-        Mix: { t: "全てを嘲笑う伝説の神", d: "自分、もう次元が違うわ！男とか女とか関係ない、存在そのものが「災害」レベル。全ての裏ボスが束になっても勝てへん真のリーダーや。自分が出てきたら物語は強制終了。自分、最強すぎて人生退屈してへんか？", c: "#ff79c6", i: "boss7.png" }
+        A: { t: "インテリ眼鏡の冷徹執行官", d: "自分、頭良すぎて逆に怖いわ！お茶すすりながら「全部、計算通りやで」って涼しい顔で言うてるタイプやろ。感情に流されへんから、敵に回すと一番理詰めでボコボコにされる、最強のインテリやな。", c: "#4cc9f0", i: "boss1.png.png" },
+        B: { t: "爆破大好き！ガトリング少女", d: "自分、テンション高すぎやろ！「ルール？そんなん壊すためにあるんやろ？」って笑いながら、デカい銃をぶっ放すタイプやな。自分が楽しければ世界がどないなってもええっていう、無茶苦茶やけど皆に好かれる爆弾娘やで！", c: "#f72585", i: "boss2.png.png" },
+        C: { t: "毒薬と微笑みのマッドサイエンティスト", d: "自分、顔は笑ってるけど目が全然笑ってへんで！優しく話しかけながら、裏でこっそり怪しい薬を作って「どんな反応するか楽しみやなぁ」とか言うてそうやわ。本気で怒らせたら一番えげつない、変態的な天才やな！", c: "#ffbe0b", i: "boss3.png.png" },
+        D: { t: "影を操る虚無の支配者", d: "自分、ミステリアスすぎて存在が「闇」そのものやん！言葉少なめに「…消えろ」って一言で相手を沈める正統派。深い孤独を抱えてる感じが、逆にかっこよすぎてファンが仰山つくタイプやで。", c: "#7209b7", i: "boss4.png.png" },
+        E: { t: "ぬいぐるみと残酷なプリンセス", d: "見た目は可愛らしいお嬢様やのに、中身は驚くほど残酷やな！「あの子、邪魔やから消して？」ってぬいぐるみに命令してそうやわ。その可愛さと恐ろしさのギャップに、一生下僕にされる奴が後を絶たへんで！", c: "#ff0054", i: "boss5.png.png" },
+        F: { t: "墜ちた聖職者の光と闇", d: "自分、一番タチ悪いタイプやな！正義の顔して「救ってあげます」って言いながら、絶望に突き落とすんやろ？背中の羽が白か黒か分からんくらいオーラが複雑や。自分に助けられたら最後、そこは地獄の入り口やわ。", c: "#480ca8", i: "boss6.png.png" },
+        Mix: { t: "全てを嘲笑う伝説の神", d: "自分、もう次元が違うわ！男とか女とか関係ない、存在そのものが「災害」レベル。全ての裏ボスが束になっても勝てへん真のリーダーや。自分が出てきたら物語は強制終了。自分、最強すぎて人生退屈してへんか？", c: "#ff79c6", i: "boss7.png.png" }
     };
 
     let cur = 0, scores = {A:0, B:0, C:0, D:0};
@@ -115,7 +115,6 @@
         document.getElementById('res-type').innerText = "【" + res.t + "】";
         document.getElementById('res-desc').innerText = res.d;
         document.getElementById('res-img').src = res.i;
-        document.getElementById('res-img').style.display = 'block';
         document.getElementById('res-card').style.borderColor = res.c;
     }
 </script>
